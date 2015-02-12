@@ -28,15 +28,23 @@ describe("romanNum", function() {
     expect(romanNum(1000)).to.equal("M");
   });
 
-  it("will return an 'I' for ones up to 3", function() {
+  it("will return the new level letter for the first 3 numbers in the column", function() {
     expect(romanNum(3)).to.equal("III");
+    expect(romanNum(30)).to.equal("XXX");
+    expect(romanNum(300)).to.equal("CCC");
+    expect(romanNum(3000)).to.equal("MMM");
   });
 
-  it("will return IV for 4", function() {
+  it("will return new level letter followed by the midlevel letter ", function() {
     expect(romanNum(4)).to.equal("IV");
+    expect(romanNum(40)).to.equal("XL");
+    expect(romanNum(400)).to.equal("CD");
   });
 
-  it("will return continue pattern after mid level", function() {
+  it("will return midlevel letter followed by the new level letter (up to 3 times) for numbers preceding the next level number minus 1", function() {
     expect(romanNum(8)).to.equal("VIII")
-  })
+    expect(romanNum(80)).to.equal("LXXX");
+    expect(romanNum(800)).to.equal("DCCC");
+  });
+
 });
