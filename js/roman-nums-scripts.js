@@ -74,3 +74,17 @@ var romanNum = function(number) {
   });
   return romanString;
 };
+
+
+$(document).ready(function() {
+  $("form#roman-num").submit(function(event) {
+    var number = parseInt($("input#number").val());
+    var result = romanNum(number);
+
+  $(".results").text(result);
+  $("#result").show();
+
+  event.preventDefault();
+  });
+
+});
